@@ -29,3 +29,5 @@ study-test variant, but we have (often while in the scanner) done a continuous
 version as well (Yassa et al., 2010, NeuroImage).  A good place to turn for 
 some of the behavioral comparisons is the S. Stark et al. (2015, Behavioral
 Neuroscience) paper.
+
+Note: Binary builds are available on the lab website: https://faculty.sites.uci.edu/starklab/mnemonic-similarity-task-mst/
