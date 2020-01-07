@@ -12,7 +12,7 @@
 
 #define N_STIM_PER_LIST 192
 #define N_STIM_PER_SET 64
-#define VERSION 0.96
+#define VERSION 0.97
 
 extern int SetBins[11][N_STIM_PER_LIST];
 //extern int SetDBins[N_STIM_PER_LIST];
