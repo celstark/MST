@@ -105,7 +105,7 @@ def check_files(SetName):
     bins = []  # Clear out any existing items in the bin list
     
     # Load the bin file
-    with open("Set"+str(SetName)+" bins.txt","rb") as bin_file:
+    with open("Set"+str(SetName)+" bins.txt","r") as bin_file:
         reader=csv.reader(bin_file,delimiter='\t')
         for row in reader:
             if int(row[0]) > 192:
