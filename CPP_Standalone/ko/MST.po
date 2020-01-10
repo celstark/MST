@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-22 17:51-0700\n"
+"PO-Revision-Date: 2020-01-10 14:33-0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: MnemonicSimilarity/canvas.cpp:70
+msgid "Indoor or Outdoor?"
+msgstr "집 안에 또는 집 밖에"
+
+#: MnemonicSimilarity/canvas.cpp:81
+msgid "Old, Similar, or New?"
+msgstr "오래된, 비슷한, 새로운"
+
+#: MnemonicSimilarity/canvas.cpp:74 MnemonicSimilarity/canvas.cpp:85
+msgid "Press spacebar to start"
+msgstr "시작하려면 스페이스 바를 누르세요"
+
+msgid "Old"
+msgstr "오래된"
+
+msgid "Similar"
+msgstr "비슷한"
+
+msgid "New"
+msgstr "새로운"
+
+msgid "Indoor"
+msgstr "집 안에"
+
+msgid "Outdoor"
+msgstr "집 밖에"
+
+#: MnemonicSimilarity/main.cpp:148
+msgid "&About...\tF1"
+msgstr "소개   F1"
+
+#: MnemonicSimilarity/main.cpp:163
+msgid "&File"
+msgstr "파일"
+
+#: MnemonicSimilarity/main.cpp:165
+msgid "&Help"
+msgstr "도움말"
+
+#: MnemonicSimilarity/main.cpp:157
+msgid "&Run full screen\tAlt-R"
+msgstr "전체 화면으로 실행"
+
+#: MnemonicSimilarity/parameters.cpp:99
+msgid "Choose output directory"
+msgstr "출력 디렉토리 선정"
+
+#: MnemonicSimilarity/main.cpp:152
+msgid "E&xit\tAlt-X"
+msgstr "끝내기"
+
+#: MnemonicSimilarity/main.cpp:149
+msgid "Help"
+msgstr "도움말"
+
+#: MnemonicSimilarity/main.cpp:152
+msgid "Quit this program"
+msgstr "이 프로그램을 끝냅니다"
+
+#: MnemonicSimilarity/main.cpp:164
+msgid "Run"
+msgstr "실행"
+
+#: MnemonicSimilarity/main.cpp:158
+msgid "Run &windowed\tAlt-W"
+msgstr "윈도위에서 실행"
+
+#: MnemonicSimilarity/main.cpp:158
+msgid "Run in a window"
+msgstr "윈도위에서 실행"
+
+#: MnemonicSimilarity/main.cpp:157
+msgid "Run in full screen mode"
+msgstr "전체 화면으로 실행"
+
+#: MnemonicSimilarity/main.cpp:151
+msgid "Show Parameters"
+msgstr "파라미터를 보기"
+
+#: MnemonicSimilarity/main.cpp:148
+msgid "Show about dialog"
+msgstr "대화창 보기"
+
+#: MnemonicSimilarity/main.cpp:149
+msgid "Show experimenter instructions"
+msgstr "실험자의 지시사항 보기"
+
+#: MnemonicSimilarity/main.cpp:177
+msgid "Welcome to BPSO"
+msgstr "MST 에 온 것을 환영합니다"
