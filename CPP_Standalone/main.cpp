@@ -77,7 +77,7 @@
 
 0.96 (1/11/18): - Ditched the bogus da computation and shifted to accurate d' calculation in two-choice
                 - Added 'Scenes C' -- Note the lure bins here are entirely bogus and this is not really for general consumption
-0.97 (1/20):    - Added Hungarian
+0.97 (1/20):    - Added Hungarian and Korean
  
 */
 #include "wx/wxprec.h"
@@ -329,6 +329,7 @@ void c_DisplayFrame::OnLocale(wxCommandEvent& WXUNUSED(event)) {
         "German",
         "Hungarian",
         "Italian",
+        "Korean",
         "Spanish",
         "Swedish"
     };
@@ -340,6 +341,7 @@ void c_DisplayFrame::OnLocale(wxCommandEvent& WXUNUSED(event)) {
         wxLANGUAGE_GERMAN,
         wxLANGUAGE_HUNGARIAN,
         wxLANGUAGE_ITALIAN,
+        wxLANGUAGE_KOREAN,
         wxLANGUAGE_SPANISH,
         wxLANGUAGE_SWEDISH,
     };
