@@ -27,6 +27,8 @@ Forked from v0.95 of the C++ version of MST on July 28, 2017
   Assumes the # of repeat and lure pairs are the same
   
   Includes self-paced and other edits from 1/7 MST_Psychopy.py
+
+1/7/21  (CELS): Log file output bugs fixed
   
 """
 
@@ -345,7 +347,7 @@ def show_task(params,fnames,type_code,lag,set_bins):
             t1 = trial * (duration + isi)  # Time when this trial should have started
         stim_path = fnames[trial]
         stim_number = int(stim_path[-8:-5])
-        log.write('{0},{1},{2},{3},{4:.3f},'.format(trial+1,fnames[trial],
+        log.write('{0},{1},{2},{3},{4},{5:.3f},'.format(trial+1,fnames[trial],
                   type_code[trial],lag[trial],set_bins[stim_number-1],local_timer.getTime()))
         log.flush()
         image = visual.ImageStim(win, image=fnames[trial])
@@ -421,7 +423,7 @@ def show_task(params,fnames,type_code,lag,set_bins):
                 return -1
         ncorrect += correct
     # Print some summary stats to the log file
-    log.write('\nValid responses:\nTargets, {0:d}\nlures, {1:d}\nfoils, {2:d}'.format(TLF_trials[0],TLF_trials[1],TLF_trials[2]))
+    log.write('\nValid responses:\nTargets, {0:.0f}\nlures, {1:.0f}\nfoils, {2:.0f}'.format(TLF_trials[0],TLF_trials[1],TLF_trials[2]))
     log.write('\nCorrected rates\n')
     log.write('\nRateMatrix,Targ,Lure,Foil\n')
     # Fix up any no-response cell here so we don't divide by zero
@@ -441,18 +443,18 @@ def show_task(params,fnames,type_code,lag,set_bins):
 
     log.write('\nRaw counts')
     log.write('\nRawRespMatrix,Targ,Lure,Foil\n')
-    log.write('Old,{0:d},{1:d},{2:d}\n'.format(TLF_response_matrix[0,0], TLF_response_matrix[0,1],TLF_response_matrix[0,2]))
-    log.write('Similar,{0:d},{1:d},{2:d}\n'.format(TLF_response_matrix[1,0], TLF_response_matrix[1,1],TLF_response_matrix[1,2]))
-    log.write('New,{0:d},{1:d},{2:d}\n'.format(TLF_response_matrix[2,0], TLF_response_matrix[2,1],TLF_response_matrix[2,2]))
+    log.write('Old,{0:.0f},{1:.0f},{2:.0f}\n'.format(TLF_response_matrix[0,0], TLF_response_matrix[0,1],TLF_response_matrix[0,2]))
+    log.write('Similar,{0:.0f},{1:.0f},{2:.0f}\n'.format(TLF_response_matrix[1,0], TLF_response_matrix[1,1],TLF_response_matrix[1,2]))
+    log.write('New,{0:.0f},{1:.0f},{2:.0f}\n'.format(TLF_response_matrix[2,0], TLF_response_matrix[2,1],TLF_response_matrix[2,2]))
     
     log.write('\n\nLureRawRespMatrix,Bin1,Bin2,Bin3,Bin4,Bin5\n')
-    log.write('Old,{0:d},{1:d},{2:d},{3:d},{4:d}\n'.format(
+    log.write('Old,{0:.0f},{1:.0f},{2:.0f},{3:.0f},{4:.0f}\n'.format(
         lure_bin_matrix[0,0], lure_bin_matrix[0,1],lure_bin_matrix[0,2],lure_bin_matrix[0,3],lure_bin_matrix[0,4]))
-    log.write('Similar,{0:d},{1:d},{2:d},{3:d},{4:d}\n'.format(
+    log.write('Similar,{0:.0f},{1:.0f},{2:.0f},{3:.0f},{4:.0f}\n'.format(
         lure_bin_matrix[1,0], lure_bin_matrix[1,1],lure_bin_matrix[1,2],lure_bin_matrix[1,3],lure_bin_matrix[1,4]))
-    log.write('New,{0:d},{1:d},{2:d},{3:d},{4:d}\n'.format(
+    log.write('New,{0:.0f},{1:.0f},{2:.0f},{3:.0f},{4:.0f}\n'.format(
         lure_bin_matrix[2,0], lure_bin_matrix[2,1],lure_bin_matrix[2,2],lure_bin_matrix[2,3],lure_bin_matrix[2,4]))
-    log.write('NR,{0:d},{1:d},{2:d},{3:d},{4:d}\n'.format(
+    log.write('NR,{0:.0f},{1:.0f},{2:.0f},{3:.0f},{4:.0f}\n'.format(
         lure_bin_matrix[3,0], lure_bin_matrix[3,1],lure_bin_matrix[3,2],lure_bin_matrix[3,3],lure_bin_matrix[3,4]))
 
     log.write('\nPercent-correct (corrected),{0:.2}\n'.format(ncorrect / TLF_trials.sum()))
