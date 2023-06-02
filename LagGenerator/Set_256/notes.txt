@@ -1,0 +1,13 @@
+Both of these should be setup as
+
+ZERO_LAGS = range(0, 1)
+SHORT_LAGS = range(4, 12)
+MED_LAGS = range(20, 100)
+LONG_LAGS = range(120, 181)
+
+LAG_COUNTS = [
+    (32, SHORT_LAGS),
+    (32, MED_LAGS),
+]
+
+FOIL_TRIALS = 0
