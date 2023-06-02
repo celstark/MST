@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 from __future__ import print_function, division
 
 """ 
@@ -30,6 +30,8 @@ Forked from v0.95 of the C++ version of MST on July 28, 2017
 
 1/7/21  (CELS): Log file output bugs fixed
   
+  
+6/1/23 (CELS): Updated for current PsychoPy / Python3
 """
 
 """
@@ -141,7 +143,7 @@ def check_files(SetName):
 
 def load_and_decode_order(repeat_list,lure_list,foil_list,
                           lag_set='AllShort_Set2',order=1,base_dir='LagGenerator',
-                          stim_set='1'):
+                          stim_set='1',verbose=False):
     """
     Loads the order text file and decodes this into a list of image names, 
      conditions, lags, etc.
@@ -177,7 +179,10 @@ def load_and_decode_order(repeat_list,lure_list,foil_list,
         lag: Lag for this item (-1=1st/foil, 0=adjacent, N=items between)
         fnames: Actual filename of image to be shown
     """
+    verbose=True
     fname=base_dir + os.sep + lag_set + os.sep + "order_{0}.txt".format(order)
+    if verbose:
+        print('loading',fname)
     fdata=np.genfromtxt(fname,dtype=int,delimiter=',')
     
     lag = fdata[:,1]
@@ -198,6 +203,8 @@ def load_and_decode_order(repeat_list,lure_list,foil_list,
     dirname='Set {0}{1}'.format(stim_set, os.sep)  # Get us to the directory
     for i in range(len(type_code)):
         stimfile='UNKNOWN'
+        if verbose:
+            print(i,type_code[i])
         if type_code[i]==0 or type_code[i]==1:
             stimfile='{0:03}a.jpg'.format(repeat_list[stim_index[i]])
         elif type_code[i]==2:
@@ -313,13 +320,13 @@ def show_task(params,fnames,type_code,lag,set_bins):
     
     if params['TwoChoice']==True:
         instructions1=visual.TextStim(win,text="Old or New?",pos=(0,0.9),
-            color=(-1,-1,-1),wrapWidth=1.75,alignHoriz='center',alignVert='center')
+            color=(-1,-1,-1),wrapWidth=1.75,anchorHoriz='center',anchorVert='center')
     else:
         instructions1=visual.TextStim(win,text="Old, Similar, or New?",pos=(0,0.9),
-            color=(-1,-1,-1),wrapWidth=1.75,alignHoriz='center',alignVert='center')
+            color=(-1,-1,-1),wrapWidth=1.75,anchorHoriz='center',anchorVert='center')
     
     instructions2=visual.TextStim(win,text="Press the spacebar to begin",pos=(0,-0.25),
-        color=(-0.5,-0.5,-0.5),wrapWidth=1.75,alignHoriz='center',alignVert='center')
+        color=(-0.5,-0.5,-0.5),wrapWidth=1.75,anchorHoriz='center',anchorVert='center')
     
     instructions1.draw()
     instructions2.draw()
@@ -462,7 +469,7 @@ def show_task(params,fnames,type_code,lag,set_bins):
 
     hit_rate = TLF_response_matrix[0,0] / TLF_trials[0]
     false_rate = TLF_response_matrix[0,2] / TLF_trials[2]
-    log.write('\nCorrected recognition (p(Old|Target)-p(Old|Foil)), {0:.2f}'.format(hit_rate - false_rate))
+    log.write('\nCorrected recognition (REC) (p(Old|Target)-p(Old|Foil)), {0:.2f}'.format(hit_rate - false_rate))
 
     if params['TwoChoice']==True:
         log.write('\nTwo-choice test metrics\n')
