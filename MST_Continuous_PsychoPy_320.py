@@ -42,7 +42,8 @@ accordingly. The original used 64 here as a fixed length of each list. But,
 time is short and I've just manually fixed the lure length to 100 to get things 
 up and going.
 - Also, set the default timing to 3 + 0.5s
-
+6/19/23 (CELS): Fixed to allow 100 lures rather than 99.
+  - Fixed Corr/RT header bug
 """
 
 """
@@ -199,7 +200,7 @@ def load_and_decode_order(repeat_list,lure_list,foil_list,
     lag = fdata[:,1]
     lag[lag != -1] = lag[lag != -1] - 500
     
-    type_code = fdata[:,0]//100  #Note, this works b/c we loaded the data as ints
+    type_code = (fdata[:,0]-1)//100  #Note, this works b/c we loaded the data as ints
     
     stim_index = fdata[:,0]-100*type_code
     
@@ -215,15 +216,15 @@ def load_and_decode_order(repeat_list,lure_list,foil_list,
     for i in range(len(type_code)):
         stimfile='UNKNOWN'
         if verbose:
-            print(i,type_code[i])
+            print(i,type_code[i],stim_index[i]-1)
         if type_code[i]==0 or type_code[i]==1:
-            stimfile='{0:03}a.jpg'.format(repeat_list[stim_index[i]])
+            stimfile='{0:03}a.jpg'.format(repeat_list[stim_index[i]-1])
         elif type_code[i]==2:
-            stimfile='{0:03}a.jpg'.format(lure_list[stim_index[i]])
+            stimfile='{0:03}a.jpg'.format(lure_list[stim_index[i]-1])
         elif type_code[i]==3:
-            stimfile='{0:03}b.jpg'.format(lure_list[stim_index[i]])
+            stimfile='{0:03}b.jpg'.format(lure_list[stim_index[i]-1])
         elif type_code[i]==4:
-            stimfile='{0:03}a.jpg'.format(foil_list[stim_index[i]])
+            stimfile='{0:03}a.jpg'.format(foil_list[stim_index[i]-1])
         fnames.append(dirname+stimfile)
     
     return (type_code,ideal_resp,lag,fnames)
@@ -354,7 +355,7 @@ def show_task(params,fnames,type_code,lag,set_bins):
     lure_bin_matrix = np.zeros((4,5)) # Rows: O,S,N,NR  Cols=Lure bins
     
     log.write('Task started at {0}\n'.format(str(datetime.now())))
-    log.write('Trial,Stim,Cond,Lag,LBin,StartT,Resp,RT,Corr\n')
+    log.write('Trial,Stim,Cond,Lag,LBin,StartT,Resp,Corr,RT\n')
     local_timer = core.MonotonicClock()
     duration = params['Duration']
     isi = params['ISI']
