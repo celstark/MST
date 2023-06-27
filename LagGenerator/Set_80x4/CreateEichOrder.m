@@ -28,5 +28,5 @@ for i=1:tries
          break
     end
 end
-csvwrite('Eichorder80x4_3.txt',[order orderLag])
+csvwrite('order_3.txt',[combined_order combined_lag])
 numgood/tries
