@@ -15,6 +15,7 @@ Forked from v0.95 of the C++ version of MST on July 28, 2017
         Instructions now stay up all the time the image is up
 
 9/1/23: Fixed Corr/RT header bug
+        Fixed Respkeys log output
 """
 
 """
@@ -554,7 +555,7 @@ log.write('Duration: {0}\n'.format(params['Duration']))
 log.write('ISI: {0}\n'.format(params['ISI']))
 log.write('Phase: {0}\n'.format(params['Phase']))
 log.write('Set: {0}\n'.format(params['Set']))
-log.write('Respkeys: {0} {1} {2}\n'.format(params['Resp1Keys'],params['Resp1Keys'],params['Resp1Keys']))
+log.write('Respkeys: {0} {1} {2}\n'.format(params['Resp1Keys'],params['Resp2Keys'],params['Resp3Keys']))
 log.write('Self-paced: {0}\n'.format(params['SelfPaced']))
 log.write('Two-choice: {0}\n'.format(params['TwoChoice']))
 log.write('NStimPerSet: {0}\n'.format(params['NStimPerSet']))
