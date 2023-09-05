@@ -45,6 +45,8 @@ up and going.
 6/19/23 (CELS): Fixed to allow 100 lures rather than 99.
   - Fixed Corr/RT header bug
 6/26/23 (CELS): Set to split into 4 blocks
+
+9/1/23: Fixed Respkeys log output
 """
 
 """
@@ -553,7 +555,7 @@ log.write('ISI: {0}\n'.format(params['ISI']))
 log.write('Set: {0}\n'.format(params['Set']))
 log.write('Lag set: {0}\n'.format(params['LagSet']))
 log.write('Order: {0}\n'.format(params['Order']))
-log.write('Respkeys: {0} {1} {2}\n'.format(params['Resp1Keys'],params['Resp1Keys'],params['Resp1Keys']))
+log.write('Respkeys: {0} {1} {2}\n'.format(params['Resp1Keys'],params['Resp2Keys'],params['Resp3Keys']))
 log.write('Self-paced: {0}\n'.format(params['SelfPaced']))
 log.write('Two-choice: {0}\n'.format(params['TwoChoice']))
 log.write('Rnd-mode: {0} with seed {1}\n'.format(params['Randomization'],seed))
