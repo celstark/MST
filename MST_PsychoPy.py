@@ -14,6 +14,7 @@ Forked from v0.95 of the C++ version of MST on July 28, 2017
         Self-paced mode added
         Instructions now stay up all the time the image is up
 
+9/1/23: Fixed Corr/RT header bug
 """
 
 """
@@ -376,7 +377,7 @@ def show_test(params,test_list,test_cond,set_bins):
     lure_bin_matrix = np.zeros((4,5)) # Rows: O,S,N,NR  Cols=Lure bins
     
     log.write('Test phase started at {0}\n'.format(str(datetime.now())))
-    log.write('Trial,Stim,Cond,LBin,StartT,Resp,RT,Corr\n')
+    log.write('Trial,Stim,Cond,LBin,StartT,Resp,Corr,RT\n')
     local_timer = core.MonotonicClock()
     duration = params['Duration']
     isi = params['ISI']
