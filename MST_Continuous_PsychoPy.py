@@ -32,6 +32,9 @@ Forked from v0.95 of the C++ version of MST on July 28, 2017
   
   
 6/1/23 (CELS): Updated for current PsychoPy / Python3
+
+9/1/23: Fixed Corr/RT header bug
+        Fixed Respkeys log output
 """
 
 """
@@ -340,7 +343,7 @@ def show_task(params,fnames,type_code,lag,set_bins):
     lure_bin_matrix = np.zeros((4,5)) # Rows: O,S,N,NR  Cols=Lure bins
     
     log.write('Task started at {0}\n'.format(str(datetime.now())))
-    log.write('Trial,Stim,Cond,Lag,LBin,StartT,Resp,RT,Corr\n')
+    log.write('Trial,Stim,Cond,Lag,LBin,StartT,Resp,Corr,RT\n')
     local_timer = core.MonotonicClock()
     duration = params['Duration']
     isi = params['ISI']
@@ -527,7 +530,7 @@ log.write('ISI: {0}\n'.format(params['ISI']))
 log.write('Set: {0}\n'.format(params['Set']))
 log.write('Lag set: {0}\n'.format(params['LagSet']))
 log.write('Order: {0}\n'.format(params['Order']))
-log.write('Respkeys: {0} {1} {2}\n'.format(params['Resp1Keys'],params['Resp1Keys'],params['Resp1Keys']))
+log.write('Respkeys: {0} {1} {2}\n'.format(params['Resp1Keys'],params['Resp2Keys'],params['Resp3Keys']))
 log.write('Self-paced: {0}\n'.format(params['SelfPaced']))
 log.write('Two-choice: {0}\n'.format(params['TwoChoice']))
 log.write('Rnd-mode: {0} with seed {1}\n'.format(params['Randomization'],seed))
